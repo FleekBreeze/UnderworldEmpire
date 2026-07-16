@@ -1,7 +1,7 @@
 'use strict';
 
 /* ======================================================================
-   CRIM CITY — js/drugs.js
+   BLACKLIST CITY — js/drugs.js
    Drogas, componentes, laboratório, mercado flutuante.
    ====================================================================== */
 
@@ -96,6 +96,7 @@ function upgradeLab() {
   state.cash -= nextLevel.upgradeCost;
   state.labLevel = nextLevel.level;
   toast(`Laboratório melhorado: ${nextLevel.name}.`, 'success');
+  checkAchievements();
   renderAll();
 }
 
@@ -158,9 +159,11 @@ function sellDrug(drugId, amount) {
   state.cash += total;
   state.respect += Math.max(1, Math.round(amount / 5));
   state.actedThisTurn = true;
+  state.stats.drugUnitsSold += amount;
   addHeat(Math.min(5, Math.ceil(amount / 8)));
 
   toast(`Vendeste ${amount}x ${drug.name} por ${formatNumber(total)}.`, 'success');
+  checkAchievements();
   renderAll();
 }
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CRIM CITY</title>
+<title>BLACKLIST CITY</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -80,6 +80,11 @@
       <path d="M4 7 V18 H20 V9 H12 L10 7 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
     </symbol>
 
+    <symbol id="icon-seed" viewBox="0 0 24 24">
+      <path d="M12 21 C12 21 5 16.5 5 10.5 C5 6.5 8 4 12 3 C16 4 19 6.5 19 10.5 C19 16.5 12 21 12 21 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M12 21 V11 M12 11 C12 11 9 9.5 9 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+
     <symbol id="icon-arrow" viewBox="0 0 24 24">
       <path d="M5 12 H19 M13 6 L19 12 L13 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
@@ -100,6 +105,68 @@
       <path d="M9 7 H10 M14 7 H15 M9 11 H10 M14 11 H15 M9 15 H10 M14 15 H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       <path d="M10 21 V17 H14 V21" fill="none" stroke="currentColor" stroke-width="1.5"/>
     </symbol>
+
+    <!-- ============ AVATARES DE PERFIL ============ -->
+
+    <!-- Avatar 1: "O Estrategista" — chapéu fedora, óculos, ar calculista -->
+    <symbol id="avatar-strategist" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="var(--bg-panel-alt)" stroke="var(--border)" stroke-width="1.5"/>
+      <!-- pescoço/ombros -->
+      <path d="M30 90 C30 72 38 64 50 64 C62 64 70 72 70 90 Z" fill="currentColor"/>
+      <!-- cabeça -->
+      <ellipse cx="50" cy="46" rx="17" ry="19" fill="currentColor"/>
+      <!-- aba do chapéu -->
+      <path d="M24 38 C24 32 34 28 50 28 C66 28 76 32 76 38 C68 35 32 35 24 38 Z" fill="currentColor"/>
+      <!-- copa do chapéu -->
+      <path d="M37 30 C37 22 44 17 50 17 C56 17 63 22 63 30 C56 27 44 27 37 30 Z" fill="currentColor"/>
+      <!-- óculos (lentes claras, contraste com a silhueta escura) -->
+      <rect x="38" y="44" width="10" height="7" rx="1.5" fill="var(--bg-panel-alt)"/>
+      <rect x="52" y="44" width="10" height="7" rx="1.5" fill="var(--bg-panel-alt)"/>
+      <path d="M48 47 H52" stroke="var(--bg-panel-alt)" stroke-width="2"/>
+    </symbol>
+
+    <!-- Avatar 2: "O Bruto" — sem chapéu, pescoço largo, cicatriz -->
+    <symbol id="avatar-brute" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="var(--bg-panel-alt)" stroke="var(--border)" stroke-width="1.5"/>
+      <!-- ombros largos -->
+      <path d="M22 92 C22 70 33 60 50 60 C67 60 78 70 78 92 Z" fill="currentColor"/>
+      <!-- pescoço grosso -->
+      <rect x="42" y="50" width="16" height="16" fill="currentColor"/>
+      <!-- cabeça (mais quadrada) -->
+      <rect x="33" y="22" rx="10" ry="10" width="34" height="34" fill="currentColor"/>
+      <!-- cicatriz -->
+      <path d="M59 30 L65 44" stroke="var(--bg-panel-alt)" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- olhos (estreitos, agressivos) -->
+      <rect x="39" y="38" width="8" height="3" rx="1.5" fill="var(--bg-panel-alt)"/>
+      <rect x="53" y="38" width="8" height="3" rx="1.5" fill="var(--bg-panel-alt)"/>
+    </symbol>
+
+    <!-- Avatar 3: "A Sombra" — capuz/balaclava, só os olhos visíveis -->
+    <symbol id="avatar-shadow" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="var(--bg-panel-alt)" stroke="var(--border)" stroke-width="1.5"/>
+      <!-- ombros com capuz a cair -->
+      <path d="M26 92 C26 74 32 66 50 64 C68 66 74 74 74 92 Z" fill="currentColor"/>
+      <!-- cabeça encapuzada -->
+      <ellipse cx="50" cy="44" rx="19" ry="21" fill="currentColor"/>
+      <!-- abertura do capuz (mais clara) -->
+      <ellipse cx="50" cy="48" rx="12" ry="13" fill="var(--bg-panel-alt)" opacity="0.92"/>
+      <!-- sombra interior do rosto -->
+      <ellipse cx="50" cy="50" rx="11" ry="11" fill="currentColor" opacity="0.85"/>
+      <!-- olhos -->
+      <rect x="42" y="47" width="6" height="2.5" rx="1.2" fill="var(--bg-panel-alt)"/>
+      <rect x="52" y="47" width="6" height="2.5" rx="1.2" fill="var(--bg-panel-alt)"/>
+    </symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24">
+      <path d="M4 4.5 C4 3.7 4.7 3 5.5 3 H12 V19 H5.5 C4.7 19 4 19.7 4 20.5 V4.5 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M20 4.5 C20 3.7 19.3 3 18.5 3 H12 V19 H18.5 C19.3 19 20 19.7 20 20.5 V4.5 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-trophy" viewBox="0 0 24 24">
+      <path d="M7 4 H17 V10 C17 13.3 14.8 16 12 16 C9.2 16 7 13.3 7 10 V4 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M7 6 H4 V9 C4 10.7 5.3 12 7 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M17 6 H20 V9 C20 10.7 18.7 12 17 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M12 16 V19 M9 21 H15 M9 21 L9.5 19 H14.5 L15 21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -107,7 +174,7 @@
 
   <!-- ============ HEADER / STATUS BAR ============ -->
   <header class="statusbar">
-    <div class="brand">CRIM<span>CITY</span></div>
+    <div class="brand">BLACKLIST<span>CITY</span></div>
 
     <div class="stats">
       <div class="stat" title="Dinheiro">
@@ -148,6 +215,12 @@
 
     <!-- ============ NAV ============ -->
     <nav class="sidenav">
+      <button id="btn-how-to-play" class="nav-btn how-to-play-btn">
+        <svg class="icon"><use href="#icon-book"/></svg> Como Jogar
+      </button>
+
+      <div class="nav-divider"></div>
+
       <button class="nav-btn active" data-view="robberies">
         <svg class="icon"><use href="#icon-robbery"/></svg> Assaltos
       </button>
@@ -166,6 +239,9 @@
       <button class="nav-btn" data-view="profile">
         <svg class="icon"><use href="#icon-skull"/></svg> Perfil
       </button>
+      <button id="nav-achievements" class="nav-btn" data-view="achievements">
+        <svg class="icon"><use href="#icon-trophy"/></svg> Conquistas
+      </button>
 
       <div class="nav-divider"></div>
 
@@ -180,6 +256,9 @@
       </button>
       <button id="btn-load" class="nav-btn">
         <svg class="icon"><use href="#icon-load"/></svg> Carregar
+      </button>
+      <button id="btn-seed" class="nav-btn">
+        <svg class="icon"><use href="#icon-seed"/></svg> Seed
       </button>
       <button id="btn-reset" class="nav-btn nav-btn-danger">
         Reiniciar
@@ -245,6 +324,33 @@
       <!-- VIEW: PROFILE -->
       <section id="view-profile" class="view hidden">
         <h1>Perfil</h1>
+
+        <div class="identity-card">
+          <div class="identity-avatar-wrap">
+            <svg class="identity-avatar"><use id="profile-avatar-display" href="#avatar-strategist"/></svg>
+          </div>
+          <div class="identity-edit">
+            <label class="identity-label" for="input-player-name">Nome</label>
+            <div class="identity-name-row">
+              <input id="input-player-name" type="text" maxlength="20" placeholder="O teu nome no submundo" />
+              <button id="btn-save-name" class="btn">Guardar</button>
+            </div>
+
+            <span class="identity-label">Avatar</span>
+            <div id="avatar-picker" class="avatar-picker">
+              <button class="avatar-option" data-avatar="avatar-strategist" title="O Estrategista">
+                <svg class="avatar-thumb"><use href="#avatar-strategist"/></svg>
+              </button>
+              <button class="avatar-option" data-avatar="avatar-brute" title="O Bruto">
+                <svg class="avatar-thumb"><use href="#avatar-brute"/></svg>
+              </button>
+              <button class="avatar-option" data-avatar="avatar-shadow" title="A Sombra">
+                <svg class="avatar-thumb"><use href="#avatar-shadow"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div class="profile-grid">
           <div class="profile-card">
             <h3>Identidade</h3>
@@ -266,22 +372,135 @@
         </div>
       </section>
 
+      <!-- VIEW: ACHIEVEMENTS -->
+      <section id="view-achievements" class="view hidden">
+        <h1>Conquistas</h1>
+        <p class="view-sub">Marcos permanentes. Cada conquista desbloqueada paga um bónus único em dinheiro.</p>
+        <div id="achievements-progress" class="achievements-progress"></div>
+        <div id="achievements-list" class="card-list"></div>
+      </section>
+
     </main>
   </div>
 
   <!-- ============ LOG / TOAST AREA ============ -->
   <div id="log-feed" class="log-feed"></div>
 
+  <!-- ============ MODAL DE CONFIRMAÇÃO GENÉRICO ============ -->
+  <div id="confirm-modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal-box">
+      <h2 id="confirm-modal-title">Confirmar</h2>
+      <p id="confirm-modal-message"></p>
+      <div class="modal-actions">
+        <button id="confirm-modal-cancel" class="btn btn-secondary">Cancelar</button>
+        <button id="confirm-modal-accept" class="btn">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL DE SEED (EXPORTAR / IMPORTAR SAVE) ============ -->
+  <div id="seed-modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal-box modal-box-large seed-modal-box">
+      <h2>Seed de Save</h2>
+      <p>Exporta o teu progresso como um código de texto (seed) para o guardares ou passares para outro dispositivo. Importa uma seed para restaurar um save.</p>
+
+      <div class="seed-tabs">
+        <button class="seed-tab-btn active" data-tab="export">Exportar</button>
+        <button class="seed-tab-btn" data-tab="import">Importar</button>
+      </div>
+
+      <div id="seed-tab-export" class="seed-tab-panel">
+        <textarea id="seed-export-text" class="seed-textarea" readonly spellcheck="false"></textarea>
+        <div class="seed-actions">
+          <button id="btn-seed-copy" class="btn btn-secondary">
+            <svg class="icon"><use href="#icon-save"/></svg> Copiar Seed
+          </button>
+          <button id="btn-seed-download" class="btn btn-secondary">
+            <svg class="icon"><use href="#icon-load"/></svg> Transferir .txt
+          </button>
+        </div>
+      </div>
+
+      <div id="seed-tab-import" class="seed-tab-panel hidden">
+        <textarea id="seed-import-text" class="seed-textarea" placeholder="Cola aqui a tua seed..." spellcheck="false"></textarea>
+        <label for="seed-file-input" class="seed-file-label">
+          <svg class="icon"><use href="#icon-load"/></svg> ou escolhe um ficheiro .txt
+        </label>
+        <input type="file" id="seed-file-input" accept=".txt,text/plain" class="seed-file-input" />
+        <div class="seed-actions">
+          <button id="btn-seed-import" class="btn">Importar Seed</button>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="seed-modal-close" class="btn btn-secondary">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL DE TUTORIAL / COMO JOGAR ============ -->
+  <div id="tutorial-modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal-box modal-box-large">
+      <h2>Como Jogar — Blacklist City</h2>
+
+      <div class="tutorial-scroll">
+        <div class="tutorial-section">
+          <h3>O Conceito</h3>
+          <p>Constrói um império criminoso a partir do zero. Não há outros jogadores — és tu contra a cidade, a polícia, e o relógio.</p>
+        </div>
+
+        <div class="tutorial-section">
+          <h3>O Ciclo Principal</h3>
+          <p>Usa <b>Energia</b> para fazer <b>Assaltos</b>. Cada sucesso dá dinheiro e XP. Sobe de nível, desbloqueia crimes mais lucrativos, compra armas na <b>Loja</b> para aumentar o teu <b>Poder</b> (melhora a % de sucesso).</p>
+        </div>
+
+        <div class="tutorial-section">
+          <h3>Energia e o Dia</h3>
+          <p>A energia recupera ao <b>Avançar Dia</b>, mas energia não usada não acumula — gasta-a antes de avançar. Avançar o dia também faz produzir drogas, pagar manutenção de edifícios, e flutuar os preços do mercado.</p>
+        </div>
+
+        <div class="tutorial-section">
+          <h3>Calor e Prisão</h3>
+          <p>Cada crime aumenta o teu <b>Calor</b> (visibilidade perante a polícia). Calor alto aumenta o risco de prisão e de rusgas. Calor baixo dá pequenos bónus de sucesso e suborno mais barato. O calor desce com o tempo, mais rápido se ficares discreto. Se fores apanhado, vais para a <b>Prisão</b> — paga um suborno para saíres mais rápido.</p>
+        </div>
+
+        <div class="tutorial-section">
+          <h3>Drogas e Laboratório</h3>
+          <p>Alguns assaltos dão componentes de droga. Investe num <b>Laboratório</b> para produzir drogas automaticamente todos os dias, e vende-as no mercado — os preços flutuam, por isso vale a pena esperar pelo momento certo.</p>
+        </div>
+
+        <div class="tutorial-section">
+          <h3>Edifícios</h3>
+          <p>Compra negócios (Discoteca, Casino, Banca de Droga, Autódromo) para gerar rendimento passivo todos os dias. Cada edifício tem custo de <b>manutenção</b> — se não pagares, fica inativo até reativares. O <b>Bunker</b> é raro e regenera energia em tempo real, mesmo offline.</p>
+        </div>
+
+        <div class="tutorial-section">
+          <h3>Conquistas</h3>
+          <p>Marcos permanentes que pagam um bónus em dinheiro quando os desbloqueias pela primeira vez. Consulta o separador <b>Conquistas</b> para veres o que falta.</p>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="tutorial-modal-close" class="btn">Entendido</button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script src="js/utils.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/tutorial.js"></script>
 <script src="js/heat.js"></script>
 <script src="js/robberies.js"></script>
 <script src="js/shop.js"></script>
 <script src="js/drugs.js"></script>
 <script src="js/state.js"></script>
+<script src="js/save.js"></script>
 <script src="js/jail.js"></script>
 <script src="js/buildings.js"></script>
+<script src="js/achievements.js"></script>
+<script src="js/profile.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

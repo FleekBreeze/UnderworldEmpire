@@ -1,7 +1,7 @@
 'use strict';
 
 /* ======================================================================
-   CRIM CITY — js/shop.js
+   BLACKLIST CITY — js/shop.js
    Loja de armas/equipamento que aumenta o poder do jogador.
    ====================================================================== */
 
@@ -38,6 +38,7 @@ function buyItem(itemId) {
   state.inventory.push(itemId);
 
   toast(`Compraste ${item.name}. +${item.power} poder.`, 'success');
+  checkAchievements();
   renderAll();
 }
 

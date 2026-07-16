@@ -1,15 +1,16 @@
 'use strict';
 
 /* ======================================================================
-   CRIM CITY — js/state.js
+   BLACKLIST CITY — js/state.js
    Estado central do jogador, persistência (localStorage) e XP/level up.
    ====================================================================== */
 
-const SAVE_KEY = 'crimcity_save_v1';
+const SAVE_KEY = 'blacklist_city_save_v1';
 
 function createNewState() {
   return {
     name: 'Sem Nome',
+    avatar: 'avatar-strategist',
     day: 1,
     level: 1,
     xp: 0,
@@ -42,6 +43,19 @@ function createNewState() {
     // Timestamp (ms) da última vez que a regeneração passiva de energia foi calculada.
     // Usado para repor energia mesmo se o browser estiver fechado (cálculo retroativo).
     lastEnergyTick: Date.now(),
+
+    // Conquistas permanentes já desbloqueadas (array de ids).
+    unlockedAchievements: [],
+
+    // Contadores cumulativos usados pelas condições das conquistas.
+    // Nunca diminuem (exceto reset total do jogo).
+    stats: {
+      successfulRobberies: 0,
+      timesJailed: 0,
+      bribesPaid: 0,
+      drugUnitsSold: 0,
+      raidsSurvived: 0,
+    },
   };
 }
 
@@ -84,10 +98,17 @@ function loadGame() {
 }
 
 function resetGame() {
-  if (!confirm('Reiniciar o jogo? Todo o progresso atual será perdido.')) return;
-  state = createNewState();
-  renderAll();
-  toast('Jogo reiniciado.', 'success');
+  showConfirmModal({
+    title: 'Reiniciar Jogo',
+    message: 'Todo o progresso atual será perdido permanentemente. Tens a certeza?',
+    confirmLabel: 'Reiniciar',
+    cancelLabel: 'Cancelar',
+    onConfirm: () => {
+      state = createNewState();
+      renderAll();
+      toast('Jogo reiniciado.', 'success');
+    },
+  });
 }
 
 /* ---------------------------------------------------------------------

@@ -1,7 +1,7 @@
 'use strict';
 
 /* ======================================================================
-   CRIM CITY — js/utils.js
+   BLACKLIST CITY — js/utils.js
    Funções utilitárias partilhadas por todos os módulos.
    ====================================================================== */
 

@@ -1,7 +1,7 @@
 'use strict';
 
 /* ======================================================================
-   CRIM CITY — js/heat.js
+   BLACKLIST CITY — js/heat.js
    Sistema de "Calor" (visibilidade perante a polícia/rivais).
    Sobe com atividade criminosa, desce lentamente com o tempo.
    Heat alto = mais risco. Heat baixo = pequenos bónus por discrição.
@@ -84,6 +84,7 @@ function maybeTriggerRaid() {
 
   // Uma rusga alivia algum heat, já que "pagaste" por isso.
   addHeat(-15);
+  state.stats.raidsSurvived += 1;
 
   return { cashLost, lostDrugLines };
 }

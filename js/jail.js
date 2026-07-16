@@ -1,7 +1,7 @@
 'use strict';
 
 /* ======================================================================
-   CRIM CITY — js/jail.js
+   BLACKLIST CITY — js/jail.js
    Prisão: contagem de dias, suborno, render.
    ====================================================================== */
 
@@ -21,7 +21,9 @@ function payBribe() {
   }
   state.cash -= cost;
   state.jailDaysLeft = 0;
+  state.stats.bribesPaid += 1;
   toast(`Pagaste ${formatNumber(cost)} de suborno. Estás livre.`, 'success');
+  checkAchievements();
   renderAll();
 }
 
@@ -43,6 +45,7 @@ function renderJail() {
   wrap.innerHTML = `
     <div class="jail-status">
       <svg class="icon icon-xl"><use href="#icon-lock"/></svg>
+      <div><span class="stamp stamp-danger">Detido</span></div>
       <div class="jail-days">${state.jailDaysLeft} dia(s) restantes</div>
       <p class="view-sub">Avança o dia para cumprir pena, ou paga um suborno para saíres já.</p>
       <button id="btn-bribe" class="btn">Pagar Suborno (${formatNumber(cost)})</button>

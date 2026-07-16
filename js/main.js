@@ -1,16 +1,16 @@
 'use strict';
 
 /* ======================================================================
-   CRIM CITY — js/main.js
+   BLACKLIST CITY — js/main.js
    Eventos aleatórios, ciclo de dia, render do estado global, init.
    ====================================================================== */
 
 const RANDOM_EVENTS = [
   { text: 'Inspeção policial na cidade: assaltos mais arriscados hoje.', effect: null },
-  { text: 'Festa rave em CrimCity: ambiente calmo, sem incidentes.', effect: null },
+  { text: 'Festa numa boate clandestina: ambiente calmo, sem incidentes.', effect: null },
   { text: 'Chegou um novo lote de armas ao mercado negro.', effect: null },
   { text: 'A imprensa fala de ti: ligeiro aumento de respeito.', effect: (s) => { s.respect += 5; } },
-  { text: 'Dia tranquilo em CrimCity.', effect: null },
+  { text: 'Dia tranquilo no submundo.', effect: null },
 ];
 
 /* ---------------------------------------------------------------------
@@ -21,12 +21,20 @@ function nextDay() {
   // Avisa o jogador se vai perder energia não utilizada (a menos que esteja preso,
   // onde a energia já só recupera parcialmente por design).
   if (state.jailDaysLeft === 0 && state.energy > 0) {
-    const confirmed = confirm(
-      `Tens ${state.energy} de energia não usada. Ela NÃO acumula para o dia seguinte.\n\nAvançar o dia mesmo assim?`
-    );
-    if (!confirmed) return;
+    showConfirmModal({
+      title: 'Energia não utilizada',
+      message: `Tens ${state.energy} de energia não usada. Ela não acumula para o dia seguinte. Avançar o dia mesmo assim?`,
+      confirmLabel: 'Avançar Dia',
+      cancelLabel: 'Cancelar',
+      onConfirm: executeNextDay,
+    });
+    return;
   }
 
+  executeNextDay();
+}
+
+function executeNextDay() {
   state.day += 1;
 
   if (state.jailDaysLeft > 0) {
@@ -59,6 +67,7 @@ function nextDay() {
     toast(`Rusga! -${formatNumber(raidResult.cashLost)} dinheiro.${dragsPart}`, 'fail');
   }
 
+  checkAchievements();
   showDayBanner(state.day, eventText);
   renderAll();
 }
@@ -107,6 +116,8 @@ function renderProfile() {
   document.getElementById('prof-respect').textContent = formatNumber(state.respect);
   document.getElementById('prof-energy-max').textContent = state.energyMax;
 
+  renderIdentityCard();
+
   const invList = document.getElementById('prof-inventory');
   invList.innerHTML = '';
   if (state.inventory.length === 0) {
@@ -131,6 +142,7 @@ function renderAll() {
   renderJail();
   renderDrugLab();
   renderBuildings();
+  renderAchievements();
 }
 
 /* ---------------------------------------------------------------------
@@ -138,14 +150,28 @@ function renderAll() {
    --------------------------------------------------------------------- */
 
 function init() {
+  initConfirmModal();
+  initSeedModal();
+  initTutorial();
+
   document.querySelectorAll('.nav-btn[data-view]').forEach(btn => {
-    btn.addEventListener('click', () => switchView(btn.dataset.view));
+    btn.addEventListener('click', () => {
+      switchView(btn.dataset.view);
+      if (btn.dataset.view === 'achievements') {
+        document.getElementById('nav-achievements').classList.remove('nav-btn-alert');
+      }
+    });
   });
 
   document.getElementById('btn-next-day').addEventListener('click', nextDay);
   document.getElementById('btn-save').addEventListener('click', saveGame);
   document.getElementById('btn-load').addEventListener('click', loadGame);
   document.getElementById('btn-reset').addEventListener('click', resetGame);
+
+  document.getElementById('btn-save-name').addEventListener('click', savePlayerName);
+  document.querySelectorAll('.avatar-option').forEach(btn => {
+    btn.addEventListener('click', () => selectAvatar(btn.dataset.avatar));
+  });
 
   // Tenta carregar save automaticamente ao abrir.
   const raw = localStorage.getItem(SAVE_KEY);

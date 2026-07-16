@@ -1,7 +1,7 @@
 'use strict';
 
 /* ======================================================================
-   CRIM CITY — js/buildings.js
+   BLACKLIST CITY — js/buildings.js
    Edifícios: compra de novas unidades, upgrades de nível, renda passiva
    ao avançar o dia, e regeneração de energia em tempo real (Bunker).
    ====================================================================== */
@@ -100,6 +100,7 @@ function buyBuilding(typeId) {
   state.buildings.push({ type: typeId, level: 1, inactive: false });
 
   toast(`Compraste: ${def.name}.`, 'success');
+  checkAchievements();
   renderAll();
 }
 
@@ -213,6 +214,7 @@ function collectDailyBuildingIncome() {
 
         state.drugs[drug.id] -= unitsSold;
         drugSalesTotal += revenue;
+        state.stats.drugUnitsSold += unitsSold;
         drugSaleLines.push(`${unitsSold}x ${drug.name}`);
       });
     }
@@ -234,6 +236,8 @@ function collectDailyBuildingIncome() {
   if (newlyInactive.length > 0) {
     toast(`Sem dinheiro para manutenção: ${newlyInactive.join(', ')} ficaram inativos.`, 'fail');
   }
+
+  checkAchievements();
 }
 
 /* ---------------------------------------------------------------------

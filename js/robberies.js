@@ -1,7 +1,7 @@
 'use strict';
 
 /* ======================================================================
-   CRIM CITY — js/robberies.js
+   BLACKLIST CITY — js/robberies.js
    Dados e lógica dos assaltos: dificuldade, sucesso, recompensas, prisão.
    ====================================================================== */
 
@@ -74,6 +74,7 @@ function attemptRobbery(robberyId) {
 
     state.cash += cashGained;
     state.respect += Math.max(1, Math.round(rob.xp / 4));
+    state.stats.successfulRobberies += 1;
     gainXP(xpGained);
 
     let msg = `${rob.name}: sucesso! +${cashGained} dinheiro, +${xpGained} XP.`;
@@ -86,12 +87,15 @@ function attemptRobbery(robberyId) {
     }
 
     toast(msg, 'success');
+    checkAchievements();
   } else {
     const effectiveJailChance = Math.max(0, Math.min(100, rob.jailChance + heatJailChanceModifier()));
     const caught = Math.random() * 100 <= effectiveJailChance;
     if (caught) {
       state.jailDaysLeft = rob.jailDays;
+      state.stats.timesJailed += 1;
       toast(`${rob.name}: falhaste e foste preso por ${rob.jailDays} dia(s).`, 'fail');
+      checkAchievements();
       renderAll();
       switchView('jail');
       return;
