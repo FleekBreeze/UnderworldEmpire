@@ -164,8 +164,6 @@ function init() {
   });
 
   document.getElementById('btn-next-day').addEventListener('click', nextDay);
-  document.getElementById('btn-save').addEventListener('click', saveGame);
-  document.getElementById('btn-load').addEventListener('click', loadGame);
   document.getElementById('btn-reset').addEventListener('click', resetGame);
 
   document.getElementById('btn-save-name').addEventListener('click', savePlayerName);
@@ -173,14 +171,8 @@ function init() {
     btn.addEventListener('click', () => selectAvatar(btn.dataset.avatar));
   });
 
-  // Tenta carregar save automaticamente ao abrir.
-  const raw = localStorage.getItem(SAVE_KEY);
-  if (raw) {
-    try {
-      state = Object.assign(createNewState(), JSON.parse(raw));
-    } catch (e) { /* save inválido, usa estado novo */ }
-  }
-
+  // Nota: o jogo já não persiste automaticamente entre sessões — usa o
+  // botão "Seed" para exportar/importar o progresso manualmente.
   applyOfflineEnergyRegen();
   startEnergyTickLoop();
   renderAll();

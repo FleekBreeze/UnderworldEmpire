@@ -2,10 +2,9 @@
 
 /* ======================================================================
    BLACKLIST CITY — js/state.js
-   Estado central do jogador, persistência (localStorage) e XP/level up.
+   Estado central do jogador e XP/level up.
+   A persistência é feita via seed de texto (ver js/save.js).
    ====================================================================== */
-
-const SAVE_KEY = 'blacklist_city_save_v1';
 
 function createNewState() {
   return {
@@ -68,34 +67,8 @@ function initialDrugPrices() {
 let state = createNewState();
 
 /* ---------------------------------------------------------------------
-   PERSISTÊNCIA
+   RESET
    --------------------------------------------------------------------- */
-
-function saveGame() {
-  try {
-    localStorage.setItem(SAVE_KEY, JSON.stringify(state));
-    toast('Jogo guardado.', 'success');
-  } catch (e) {
-    toast('Falha ao guardar.', 'fail');
-  }
-}
-
-function loadGame() {
-  try {
-    const raw = localStorage.getItem(SAVE_KEY);
-    if (!raw) {
-      toast('Não há nenhum save guardado.', 'fail');
-      return;
-    }
-    const loaded = JSON.parse(raw);
-    state = Object.assign(createNewState(), loaded);
-    applyOfflineEnergyRegen();
-    renderAll();
-    toast('Jogo carregado.', 'success');
-  } catch (e) {
-    toast('Save corrompido.', 'fail');
-  }
-}
 
 function resetGame() {
   showConfirmModal({
