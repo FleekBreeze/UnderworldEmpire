@@ -834,20 +834,6 @@ h1 {
   }
   .nav-divider { display: none; }
 
-  /* Em mobile, prioriza a ação de jogo (Avançar Dia) e as secções do jogo;
-     Seed/Reiniciar seguem, e "Como Jogar" fica para o fim da barra. */
-  #btn-next-day { order: 1; }
-  .nav-btn[data-view="robberies"] { order: 2; }
-  .nav-btn[data-view="shop"] { order: 3; }
-  .nav-btn[data-view="drugs"] { order: 4; }
-  .nav-btn[data-view="buildings"] { order: 5; }
-  #nav-jail { order: 6; }
-  .nav-btn[data-view="profile"] { order: 7; }
-  #nav-achievements { order: 8; }
-  #btn-seed { order: 9; }
-  #btn-reset { order: 10; }
-  #btn-how-to-play { order: 11; }
-
   .content { padding: 18px; }
   .profile-grid { grid-template-columns: 1fr; }
   .identity-card { flex-direction: column; align-items: center; text-align: center; }
